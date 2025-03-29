@@ -1,0 +1,125 @@
+###
+POST http://localhost:3000/auth/signup
+Content-Type: application/json
+
+{
+  "email": "test@example.com",
+  "nickname": "tester",
+  "password": "1234"
+}
+
+### 로그인 요청
+POST http://localhost:3000/auth/login
+Content-Type: application/json
+
+{
+  "email": "test@example.com",
+  "password": "1234"
+}
+
+### 상품 등록
+POST http://localhost:3000/products
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImNjNzUyMzVjLWQ5MTEtNDk4Yi1iYWU0LTBjZjc1MTIxNmI5ZiIsImlhdCI6MTc0Mjg2NDM0MCwiZXhwIjoxNzQzNDY5MTQwfQ.MmxzcD19d_exr_eRNQBw7FMsPQFwpGMnlO_Do7x9ku0
+
+{
+  "name": "나만의 상품",
+  "description": "설명입니다",
+  "price": 10000,
+  "tags": ["뷰티", "트렌디"],
+  "images": ["https://image.com/sample.jpg"]
+}
+
+### 상품 수정
+PATCH http://localhost:3000/products/1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImNjNzUyMzVjLWQ5MTEtNDk4Yi1iYWU0LTBjZjc1MTIxNmI5ZiIsImlhdCI6MTc0Mjg2NDM0MCwiZXhwIjoxNzQzNDY5MTQwfQ.MmxzcD19d_exr_eRNQBw7FMsPQFwpGMnlO_Do7x9ku0
+
+{
+  "name": "수정된 상품명",
+  "description": "수정된 설명",
+  "price": 9999,
+  "tags": ["가성비", "인기"],
+  "images": ["https://example.com/image.jpg"]
+}
+
+### 상품 삭제
+DELETE http://localhost:3000/products/1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImNjNzUyMzVjLWQ5MTEtNDk4Yi1iYWU0LTBjZjc1MTIxNmI5ZiIsImlhdCI6MTc0Mjg2NDM0MCwiZXhwIjoxNzQzNDY5MTQwfQ.MmxzcD19d_exr_eRNQBw7FMsPQFwpGMnlO_Do7x9ku0
+
+### 댓글 등록
+POST http://localhost:3000/articles/1/comments
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImNjNzUyMzVjLWQ5MTEtNDk4Yi1iYWU0LTBjZjc1MTIxNmI5ZiIsImlhdCI6MTc0Mjg2NDM0MCwiZXhwIjoxNzQzNDY5MTQwfQ.MmxzcD19d_exr_eRNQBw7FMsPQFwpGMnlO_Do7x9ku0
+
+{
+  "content": "정말 멋진 게시글입니다!"
+}
+
+### 댓글 수정 
+PATCH http://localhost:3000/comments/1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImNjNzUyMzVjLWQ5MTEtNDk4Yi1iYWU0LTBjZjc1MTIxNmI5ZiIsImlhdCI6MTc0Mjg2NDM0MCwiZXhwIjoxNzQzNDY5MTQwfQ.MmxzcD19d_exr_eRNQBw7FMsPQFwpGMnlO_Do7x9ku0
+
+{
+  "content": "수정된 댓글입니다!"
+}
+
+### 댓글 삭제 
+DELETE http://localhost:3000/comments/1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImNjNzUyMzVjLWQ5MTEtNDk4Yi1iYWU0LTBjZjc1MTIxNmI5ZiIsImlhdCI6MTc0Mjg2NDM0MCwiZXhwIjoxNzQzNDY5MTQwfQ.MmxzcD19d_exr_eRNQBw7FMsPQFwpGMnlO_Do7x9ku0
+
+### 게시글 등록
+POST http://localhost:3000/articles
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImNjNzUyMzVjLWQ5MTEtNDk4Yi1iYWU0LTBjZjc1MTIxNmI5ZiIsImlhdCI6MTc0Mjg2NDM0MCwiZXhwIjoxNzQzNDY5MTQwfQ.MmxzcD19d_exr_eRNQBw7FMsPQFwpGMnlO_Do7x9ku0
+
+{
+  "title": "내 첫 게시글",
+  "content": "안녕하세요! 첫 글입니다.",
+  "image": "https://image.com/article.jpg"
+}
+
+
+### 게시글 수정
+PATCH http://localhost:3000/articles/2
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImNjNzUyMzVjLWQ5MTEtNDk4Yi1iYWU0LTBjZjc1MTIxNmI5ZiIsImlhdCI6MTc0Mjg2NDM0MCwiZXhwIjoxNzQzNDY5MTQwfQ.MmxzcD19d_exr_eRNQBw7FMsPQFwpGMnlO_Do7x9ku0
+
+{
+  "title": "수정된 제목",
+  "content": "수정된 본문입니다.",
+  "image": "https://image.com/newimage.jpg"
+}
+
+### 게시글 삭제
+DELETE http://localhost:3000/articles/2
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImNjNzUyMzVjLWQ5MTEtNDk4Yi1iYWU0LTBjZjc1MTIxNmI5ZiIsImlhdCI6MTc0Mjg2NDM0MCwiZXhwIjoxNzQzNDY5MTQwfQ.MmxzcD19d_exr_eRNQBw7FMsPQFwpGMnlO_Do7x9ku0
+
+### 내 정보 조회
+GET http://localhost:3000/users/me
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImNjNzUyMzVjLWQ5MTEtNDk4Yi1iYWU0LTBjZjc1MTIxNmI5ZiIsImlhdCI6MTc0Mjg2NDM0MCwiZXhwIjoxNzQzNDY5MTQwfQ.MmxzcD19d_exr_eRNQBw7FMsPQFwpGMnlO_Do7x9ku0
+
+### 내 정보 수정
+PATCH http://localhost:3000/users/me
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImNjNzUyMzVjLWQ5MTEtNDk4Yi1iYWU0LTBjZjc1MTIxNmI5ZiIsImlhdCI6MTc0Mjg2NDM0MCwiZXhwIjoxNzQzNDY5MTQwfQ.MmxzcD19d_exr_eRNQBw7FMsPQFwpGMnlO_Do7x9ku0
+
+{
+  "nickname": "변경된닉네임",
+  "image": "https://new-image.com/profile.jpg"
+}
+
+### 비밀번호 변경
+PATCH http://localhost:3000/users/me/password
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImNjNzUyMzVjLWQ5MTEtNDk4Yi1iYWU0LTBjZjc1MTIxNmI5ZiIsImlhdCI6MTc0Mjg2NDM0MCwiZXhwIjoxNzQzNDY5MTQwfQ.MmxzcD19d_exr_eRNQBw7FMsPQFwpGMnlO_Do7x9ku0
+
+{
+  "currentPassword": "5678",
+  "newPassword": "1234"
+}
+
+### 내가 등록한 상품 조회
+GET http://localhost:3000/users/me/products
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImNjNzUyMzVjLWQ5MTEtNDk4Yi1iYWU0LTBjZjc1MTIxNmI5ZiIsImlhdCI6MTc0Mjg2NDM0MCwiZXhwIjoxNzQzNDY5MTQwfQ.MmxzcD19d_exr_eRNQBw7FMsPQFwpGMnlO_Do7x9ku0
